@@ -1,5 +1,5 @@
 import { pool } from "./config/db";
-
+import app from './app'
 async function testDB() {
   try {
     const result = await pool.query("SELECT NOW()");
