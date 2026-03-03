@@ -13,7 +13,7 @@ export function QHCard({
   className = '',
   hoverable = false,
 }: QHCardProps) {
-  const baseClasses = 'bg-white rounded-lg p-6 border border-neutral-300 transition-all duration-200';
+  const baseClasses = 'bg-white rounded-xl p-6 border border-neutral-300 transition-all duration-200';
 
   const hoverClasses = hoverable
     ? 'hover:shadow-lg hover:border-primary/20 cursor-pointer'

@@ -102,20 +102,8 @@ export function SearchBar({ onSearch, initialQuery = '', initialLocation = '' }:
       {/* Popular Search Terms */}
       <div className="mt-4">
         <p className="text-body-sm text-neutral-600 font-body mb-2">
-          Popular searches:
+          <span className="font-semibold">{TEXT.hero.popular}</span> {POPULAR_SEARCHES.join(', ')}
         </p>
-        <div className="flex flex-wrap gap-2">
-          {POPULAR_SEARCHES.map((searchTerm) => (
-            <button
-              key={searchTerm}
-              type="button"
-              onClick={() => handlePopularSearchClick(searchTerm)}
-              className="px-3 py-1 text-body-sm font-body text-neutral-700 bg-white border border-neutral-300 rounded-full hover:border-primary hover:text-primary transition-colors duration-200"
-            >
-              {searchTerm}
-            </button>
-          ))}
-        </div>
       </div>
     </div>
   );

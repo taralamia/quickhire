@@ -4,6 +4,7 @@ export const ROUTES = {
   jobDetails: (id: string) => `/jobs/${id}`,
   companies: '/companies',
   companyDetails: (id: string) => `/companies/${id}`,
+  admin: '/admin',
   dashboard: '/dashboard',
   dashboardJobs: '/dashboard/jobs',
   dashboardApplicants: '/dashboard/applicants',

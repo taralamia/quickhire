@@ -241,3 +241,15 @@ export function getJobById(id: string): Job | undefined {
 export function getCompanyById(id: string): Company | undefined {
   return MOCK_COMPANIES.find(company => company.id === id);
 }
+
+// Mock applicant summary data
+export const MOCK_APPLICANT_SUMMARY = {
+  totalApplicants: 150,
+  stages: [
+    { stage: 'Applied', count: 60, color: '#4640DE' },
+    { stage: 'Screening', count: 35, color: '#26A4FF' },
+    { stage: 'Interview', count: 28, color: '#FFB836' },
+    { stage: 'Offer', count: 15, color: '#56CDAD' },
+    { stage: 'Hired', count: 12, color: '#7B61FF' },
+  ],
+};

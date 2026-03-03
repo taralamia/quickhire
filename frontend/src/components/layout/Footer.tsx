@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { QHInput } from '../ui/QHInput';
 import { QHButton } from '../ui/QHButton';
 import { TEXT } from '../../constants/text';
@@ -21,11 +20,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Column 1: Logo and Description */}
           <div className="lg:col-span-1">
-            <Link to={ROUTES.home} className="inline-block mb-4">
+            <a href={ROUTES.home} className="inline-block mb-4">
               <span className="text-2xl font-logo font-bold text-white">
                 QuickHire
               </span>
-            </Link>
+            </a>
             <p className="text-body-sm text-neutral-500 leading-relaxed">
               {TEXT.footer.description}
             </p>
@@ -38,44 +37,44 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link
-                  to={ROUTES.companies}
+                <a
+                  href={ROUTES.companies}
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.companies}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="/"
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.pricing}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="/"
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.terms}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="/"
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.advice}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="/"
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.privacyPolicy}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -87,36 +86,36 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="/"
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.helpDocs}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="/"
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.guide}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="/"
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.updates}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="/"
                   className="text-body-sm text-neutral-500 hover:text-white transition-colors duration-200"
                 >
                   {TEXT.footer.contact}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

@@ -1,15 +1,18 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Landing, JobSearch, JobDetails, AdminDashboard, Companies } from './pages';
+
 function App() {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-h2 font-heading font-semibold text-primary">
-          QuickHire
-        </h1>
-        <p className="text-body font-body text-neutral-700 mt-4">
-          Job application platform - Setup complete!
-        </p>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/jobs" element={<JobSearch />} />
+        <Route path="/jobs/:id" element={<JobDetails />} />
+        <Route path="/companies" element={<Companies />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -22,8 +22,8 @@ export function CategoryCard({
   };
 
   const cardClassName = featured
-    ? 'flex flex-col items-center gap-4 bg-primary text-white'
-    : 'flex flex-col items-center gap-4';
+    ? 'flex flex-col items-center gap-4 bg-primary text-white border-primary shadow-lg hover:shadow-xl transition-all duration-200'
+    : 'flex flex-col items-center gap-4 border border-neutral-200 shadow-sm hover:shadow-md transition-all duration-200';
 
   const textColorClass = featured ? 'text-white' : 'text-neutral-600';
   const headingColorClass = featured ? 'text-white' : 'text-neutral-900';

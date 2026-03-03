@@ -8,8 +8,8 @@ export interface CompanyCardProps {
 
 export function CompanyCard({ company, featured = false }: CompanyCardProps) {
   const cardClassName = featured
-    ? 'flex flex-col gap-4 bg-primary text-white'
-    : 'flex flex-col gap-4';
+    ? 'flex flex-col gap-4 bg-primary text-white border-primary shadow-lg hover:shadow-xl transition-all duration-200'
+    : 'flex flex-col gap-4 border border-neutral-200 shadow-sm hover:shadow-md transition-all duration-200';
 
   const textColorClass = featured ? 'text-white' : 'text-neutral-600';
   const headingColorClass = featured ? 'text-white' : 'text-neutral-900';
@@ -17,7 +17,7 @@ export function CompanyCard({ company, featured = false }: CompanyCardProps) {
   return (
     <QHCard className={cardClassName}>
       {/* Company Logo */}
-      <div className="flex items-center justify-center w-16 h-16 bg-white rounded">
+      <div className="flex items-center justify-center w-16 h-16 bg-white rounded-lg border border-neutral-100">
         <img
           src={company.logo}
           alt={`${company.name} logo`}

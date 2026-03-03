@@ -7,10 +7,18 @@ export const TEXT = {
   },
   hero: {
     title: 'Discover more than 5000+ Jobs',
-    subtitle: 'Great platform for job seekers that are passionate about startups',
+    subtitle: 'Great platform for job seekers that are passionate about startups. Find your dream job easier.',
     searchPlaceholder: 'Job title or keyword',
     locationPlaceholder: 'Select location',
     searchButton: 'Search my job',
+    popular: 'Popular :',
+  },
+  sections: {
+    showAllJobs: 'Show all jobs',
+    companiesWeHelped: 'Companies we helped grow',
+    featuredJobs: 'Featured jobs',
+    exploreByCategory: 'Explore by category',
+    latestJobsOpen: 'Latest jobs open',
   },
   categories: {
     design: 'Design',
@@ -63,5 +71,10 @@ export const TEXT = {
     viewAll: 'View All',
     apply: 'Apply Now',
     learnMore: 'Learn More',
+  },
+  employerCta: {
+    title: 'Start Hiring Today',
+    subtitle: 'Post your jobs and connect with talented candidates',
+    button: 'Sign Up For Free',
   },
 } as const;

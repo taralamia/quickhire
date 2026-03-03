@@ -12,6 +12,10 @@ export function Header() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white border-b border-neutral-300 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,8 +28,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space
--x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             <Link
               to={ROUTES.jobs}
               className="text-body text-neutral-700 hover:text-primary transition-colors duration-200"
@@ -45,16 +48,16 @@ export function Header() {
             <QHButton
               variant="ghost"
               size="md"
-              onClick={() => navigate(ROUTES.login)}
+              onClick={() => handleNavigation(ROUTES.login)}
             >
               {TEXT.nav.login}
             </QHButton>
             <QHButton
               variant="primary"
               size="md"
-              onClick={() => navigate(ROUTES.dashboard)}
+              onClick={() => handleNavigation(ROUTES.admin)}
             >
-              {TEXT.nav.postJob}
+              Sign Up
             </QHButton>
           </div>
 
@@ -122,7 +125,7 @@ export function Header() {
                   size="md"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    navigate(ROUTES.login);
+                    handleNavigation(ROUTES.login);
                   }}
                 >
                   {TEXT.nav.login}
@@ -132,10 +135,10 @@ export function Header() {
                   size="md"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    navigate(ROUTES.dashboard);
+                    handleNavigation(ROUTES.admin);
                   }}
                 >
-                  {TEXT.nav.postJob}
+                  Sign Up
                 </QHButton>
               </div>
             </nav>
