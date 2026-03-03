@@ -1,2 +1,15 @@
 node_modules
 .env
+# Frontend dependencies
+/frontend/node_modules/
+
+# Frontend build output
+/frontend/dist/
+/frontend/build/
+/frontend/.next/
+/frontend/out/
+
+# Frontend env files
+/frontend/.env
+/frontend/.env.local
+/frontend/.env.*.local
