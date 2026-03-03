@@ -1,12 +1,17 @@
-import { pool } from "./config/db";
-import app from './app'
-async function testDB() {
-  try {
-    const result = await pool.query("SELECT NOW()");
-    console.log("DB Connected:", result.rows[0]);
-  } catch (error) {
-    console.error("DB Connection Failed:", error);
-  }
-}
+import app from './app';
+import { pool } from './config/db';
 
-testDB();
+const PORT = Number(process.env.PORT) || 5000;
+
+pool
+  .connect()
+  .then(() => {
+    console.log('✅ PostgreSQL connected');
+    app.listen(PORT, () =>
+      console.log(`🚀 Server running on http://localhost:${PORT}`)
+    );
+  })
+  .catch((err: Error) => {
+    console.error('❌ Database connection failed:', err.message);
+    process.exit(1);
+  });

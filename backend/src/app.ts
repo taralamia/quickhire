@@ -16,7 +16,9 @@ app.use(express.json());
 app.use('/api', route);
 
 // Health check
-app.get('/health', (_req, res) => res.json({ status: 'ok' }));
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok' });
+});
 
 // Global error handler — must be last
 app.use(errorHandler);
