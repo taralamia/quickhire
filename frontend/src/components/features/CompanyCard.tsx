@@ -19,10 +19,13 @@ export function CompanyCard({ company, featured = false }: CompanyCardProps) {
       {/* Company Logo */}
       <div className="flex items-center justify-center w-16 h-16 bg-white rounded-lg border border-neutral-100">
         <img
-          src={company.logo}
+          src={company.logo || '/assets/companies/placeholder.svg'}
           alt={`${company.name} logo`}
           className="w-12 h-12 object-contain"
           data-testid="company-logo"
+          onError={(e) => {
+            e.currentTarget.src = '/assets/companies/placeholder.svg';
+          }}
         />
       </div>
 

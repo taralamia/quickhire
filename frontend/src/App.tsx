@@ -1,5 +1,17 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { Landing, JobSearch, JobDetails, AdminDashboard, Companies } from './pages';
+import { 
+  Landing, 
+  JobSearch, 
+  JobDetails, 
+  DashboardJobs, 
+  Dashboard, 
+  DashboardApplicants,
+  DashboardMessages,
+  DashboardSettings,
+  Companies,
+  Login 
+} from './pages';
+import { DashboardLayout } from './components/layout';
 
 function App() {
   return (
@@ -9,7 +21,17 @@ function App() {
         <Route path="/jobs" element={<JobSearch />} />
         <Route path="/jobs/:id" element={<JobDetails />} />
         <Route path="/companies" element={<Companies />} />
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* Dashboard Routes with Sidebar Layout */}
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="jobs" element={<DashboardJobs />} />
+          <Route path="applicants" element={<DashboardApplicants />} />
+          <Route path="messages" element={<DashboardMessages />} />
+          <Route path="settings" element={<DashboardSettings />} />
+        </Route>
+        
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

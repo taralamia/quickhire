@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
+  <!-- Q -->
+  <circle cx="25" cy="25" r="15" stroke="#4640DE" stroke-width="3" fill="none"/>
+  <line x1="35" y1="35" x2="40" y2="40" stroke="#4640DE" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- H -->
+  <line x1="55" y1="10" x2="55" y2="40" stroke="#4640DE" stroke-width="3" stroke-linecap="round"/>
+  <line x1="70" y1="10" x2="70" y2="40" stroke="#4640DE" stroke-width="3" stroke-linecap="round"/>
+  <line x1="55" y1="25" x2="70" y2="25" stroke="#4640DE" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Text -->
+  <text x="85" y="32" font-family="Red Hat Display, sans-serif" font-size="24" font-weight="700" fill="#202430">QuickHire</text>
+</svg>

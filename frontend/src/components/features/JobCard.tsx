@@ -24,10 +24,13 @@ export function JobCard({ job, onClick }: JobCardProps) {
       {/* Company Logo and Job Title */}
       <div className="flex items-start gap-4">
         <img
-          src={job.company.logo}
+          src={job.company.logo || '/assets/companies/placeholder.svg'}
           alt={`${job.company.name} logo`}
           className="w-16 h-16 object-contain rounded border border-neutral-100"
           data-testid="company-logo"
+          onError={(e) => {
+            e.currentTarget.src = '/assets/companies/placeholder.svg';
+          }}
         />
         <div className="flex-1 min-w-0">
           <h3

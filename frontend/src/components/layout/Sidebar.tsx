@@ -12,10 +12,10 @@ interface SidebarNavItem {
 
 const NAV_ITEMS: SidebarNavItem[] = [
   { label: TEXT.dashboard.overview, icon: 'dashboard', path: ROUTES.dashboard },
-  { label: TEXT.dashboard.jobs, icon: 'briefcase', path: `${ROUTES.dashboard}/jobs` },
-  { label: TEXT.dashboard.applicants, icon: 'users', path: `${ROUTES.dashboard}/applicants` },
-  { label: TEXT.dashboard.messages, icon: 'message', path: `${ROUTES.dashboard}/messages` },
-  { label: TEXT.dashboard.settings, icon: 'settings', path: `${ROUTES.dashboard}/settings` },
+  { label: TEXT.dashboard.jobs, icon: 'briefcase', path: ROUTES.dashboardJobs },
+  { label: TEXT.dashboard.applicants, icon: 'users', path: ROUTES.dashboardApplicants },
+  { label: TEXT.dashboard.messages, icon: 'message', path: ROUTES.dashboardMessages },
+  { label: TEXT.dashboard.settings, icon: 'settings', path: ROUTES.dashboardSettings },
 ];
 
 export function Sidebar() {

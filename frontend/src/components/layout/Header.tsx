@@ -21,7 +21,16 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to={ROUTES.home} className="flex items-center">
+          <Link to={ROUTES.home} className="flex items-center gap-2">
+            <img 
+              src="/assets/logo.svg" 
+              alt="QuickHire" 
+              className="h-8"
+              onError={(e) => {
+                // Fallback to text-only logo if SVG fails
+                e.currentTarget.style.display = 'none';
+              }}
+            />
             <span className="text-2xl font-logo font-bold text-neutral-900">
               QuickHire
             </span>
@@ -55,7 +64,7 @@ export function Header() {
             <QHButton
               variant="primary"
               size="md"
-              onClick={() => handleNavigation(ROUTES.admin)}
+              onClick={() => handleNavigation(ROUTES.dashboard)}
             >
               Sign Up
             </QHButton>
@@ -135,7 +144,7 @@ export function Header() {
                   size="md"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
-                    handleNavigation(ROUTES.admin);
+                    handleNavigation(ROUTES.dashboard);
                   }}
                 >
                   Sign Up

@@ -1,5 +1,10 @@
 export { Landing } from './Landing';
 export { JobSearch } from './JobSearch';
 export { JobDetails } from './JobDetails';
-export { AdminDashboard } from './AdminDashboard';
+export { DashboardJobs } from './DashboardJobs';
+export { Dashboard } from './Dashboard';
+export { DashboardApplicants } from './DashboardApplicants';
+export { DashboardMessages } from './DashboardMessages';
+export { DashboardSettings } from './DashboardSettings';
 export { Companies } from './Companies';
+export { Login } from './Login';

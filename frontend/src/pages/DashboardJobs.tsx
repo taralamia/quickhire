@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
 import { QHButton } from '@/components/ui/QHButton';
 import { QHInput } from '@/components/ui/QHInput';
 import { QHBadge } from '@/components/ui/QHBadge';
@@ -9,7 +7,7 @@ import { ErrorMessage } from '@/components/common/ErrorMessage';
 import { jobService } from '@/services/jobService';
 import type { Job, JobType, JobCategory } from '@/types/job';
 
-export function AdminDashboard() {
+export function DashboardJobs() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -111,20 +109,24 @@ export function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-neutral-900">Admin Dashboard</h1>
-          <QHButton
-            variant="primary"
-            size="lg"
-            onClick={() => setShowAddForm(!showAddForm)}
-          >
-            {showAddForm ? 'Cancel' : '+ Add New Job'}
-          </QHButton>
+    <div className="space-y-8">
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-h2 font-heading font-semibold text-neutral-900 mb-2">
+            Job Management
+          </h1>
+          <p className="text-body-lg text-neutral-600">
+            Manage and create job postings
+          </p>
         </div>
+        <QHButton
+          variant="primary"
+          size="lg"
+          onClick={() => setShowAddForm(!showAddForm)}
+        >
+          {showAddForm ? 'Cancel' : '+ Add New Job'}
+        </QHButton>
+      </div>
 
         {/* Add Job Form */}
         {showAddForm && (
@@ -333,9 +335,6 @@ export function AdminDashboard() {
             ))}
           </div>
         )}
-      </main>
-      
-      <Footer />
     </div>
   );
 }

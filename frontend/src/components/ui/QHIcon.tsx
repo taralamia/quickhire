@@ -22,6 +22,10 @@ export function QHIcon({ name, size = 'md', className = '' }: QHIconProps) {
       alt={name}
       className={classes}
       aria-hidden="true"
+      onError={(e) => {
+        // Fallback to a simple colored square if icon fails to load
+        e.currentTarget.style.display = 'none';
+      }}
     />
   );
 }
