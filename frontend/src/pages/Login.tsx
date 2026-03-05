@@ -40,7 +40,7 @@ export function Login() {
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
       
-      <main className="flex-1 flex items-center justify-center py-12 px-4">
+      <main className="flex-1 flex justify-center py-12 px-4">
         <div className="max-w-md w-full">
           <div className="text-center mb-8">
             <h1 className="text-h2 font-heading font-semibold text-neutral-900 mb-2">
@@ -68,7 +68,6 @@ export function Login() {
                   placeholder="you@example.com"
                   value={email}
                   onChange={setEmail}
-                  required
                 />
               </div>
 
@@ -81,7 +80,6 @@ export function Login() {
                   placeholder="••••••••"
                   value={password}
                   onChange={setPassword}
-                  required
                 />
               </div>
 
