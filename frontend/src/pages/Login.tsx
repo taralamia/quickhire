@@ -40,10 +40,10 @@ export function Login() {
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
       
-      <main className="flex-1 flex justify-center py-12 px-4">
+      <main className="flex-1 flex items-center justify-center py-12 px-4">
         <div className="max-w-md w-full">
           <div className="text-center mb-8">
-            <h1 className="text-h2 font-heading font-semibold text-neutral-900 mb-2">
+            <h1 className="text-h2 leading-tight font-heading font-semibold text-neutral-900 mb-2">
               Welcome Back
             </h1>
             <p className="text-body-lg text-neutral-600">
