@@ -8,7 +8,7 @@ export function DashboardLayout() {
       
       {/* Main Content Area */}
       <div className="flex-1 md:ml-64">
-        <main className="p-6 md:p-8">
+        <main className="pt-20 p-6 md:p-8">
           <Outlet />
         </main>
       </div>

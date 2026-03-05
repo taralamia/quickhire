@@ -8,3 +8,4 @@ export { DashboardMessages } from './DashboardMessages';
 export { DashboardSettings } from './DashboardSettings';
 export { Companies } from './Companies';
 export { Login } from './Login';
+export { AdminPage } from './AdminPage';

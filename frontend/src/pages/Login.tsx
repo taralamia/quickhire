@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Header } from '@/components/layout/Header';
+import { PageWrapper } from '@/components/layout/PageWrapper';
 import { Footer } from '@/components/layout/Footer';
 import { QHButton } from '@/components/ui/QHButton';
 import { QHInput } from '@/components/ui/QHInput';
@@ -20,10 +20,8 @@ export function Login() {
     setError('');
 
     try {
-      // TODO: Implement actual authentication
+      // Demo authentication
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // For demo purposes, accept any non-empty credentials
       if (email && password) {
         navigate(ROUTES.dashboard);
       } else {
@@ -37,10 +35,8 @@ export function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <Header />
-      
-      <main className="flex-1 flex items-center justify-center py-12 px-4">
+    <PageWrapper>
+      <div className="flex-1 flex items-center justify-center py-12 px-4">
         <div className="max-w-md w-full">
           <div className="text-center mb-8">
             <h1 className="text-h2 leading-tight font-heading font-semibold text-neutral-900 mb-2">
@@ -108,9 +104,9 @@ export function Login() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
 
       <Footer />
-    </div>
+    </PageWrapper>
   );
 }

@@ -9,7 +9,8 @@ import {
   DashboardMessages,
   DashboardSettings,
   Companies,
-  Login 
+  Login ,
+  AdminPage
 } from './pages';
 import { DashboardLayout } from './components/layout';
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="applicants" element={<DashboardApplicants />} />
           <Route path="messages" element={<DashboardMessages />} />
           <Route path="settings" element={<DashboardSettings />} />
+          <Route path="admin" element={<AdminPage />} />
         </Route>
         
         <Route path="*" element={<Navigate to="/" replace />} />

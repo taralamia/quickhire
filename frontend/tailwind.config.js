@@ -30,7 +30,7 @@ export default {
       },
       fontSize: {
         h1: ['72px', { lineHeight: '110%' }],
-        h2: ['48px', { lineHeight: '110%' }],
+        h2: ['48px', { lineHeight: '120%' }],
         'body-lg': ['18px', { lineHeight: '160%' }],
         body: ['16px', { lineHeight: '160%' }],
         'body-sm': ['14px', { lineHeight: '160%' }],

@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { PageWrapper } from '@/components/layout/PageWrapper';
 import { HeroSection } from '@/components/features/HeroSection';
 import { PopularSearches } from '@/components/features/PopularSearches';
 import { CompaniesSection } from '@/components/features/CompaniesSection';
@@ -24,50 +22,35 @@ export function Landing() {
   };
 
   const handlePopularSearchClick = (searchTerm: string) => {
-    const params: SearchParams = { query: searchTerm };
-    handleSearch(params);
+    handleSearch({ query: searchTerm });
   };
 
   const handleCategoryClick = (category: JobCategory) => {
-    const params: SearchParams = { category };
-    handleSearch(params);
+    handleSearch({ category });
   };
 
   const handleSignUp = () => {
-    // TODO: Navigate to sign up page when authentication is implemented
     console.log('Sign up clicked');
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <main>
-        {/* Hero Section with Search */}
-        <HeroSection onSearch={handleSearch} />
-        
-        {/* Companies Section */}
-        <CompaniesSection />
-        
-        {/* Popular Searches */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <PopularSearches onSearchClick={handlePopularSearchClick} />
-        </div>
-        
-        {/* Category Grid */}
-        <CategoryGrid onCategoryClick={handleCategoryClick} />
-        
-        {/* Featured Companies */}
-        <FeaturedCompanies />
-        
-        {/* Latest Jobs */}
-        <LatestJobs />
-        
-        {/* Employer CTA */}
-        <EmployerCTA onSignUp={handleSignUp} />
-      </main>
-      
-      <Footer />
-    </div>
+    <PageWrapper>
+      {/* Hero Section */}
+      <HeroSection onSearch={handleSearch} />
+      {/* Companies Section */}
+      <CompaniesSection />
+      {/* Popular Searches */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <PopularSearches onSearchClick={handlePopularSearchClick} />
+      </div>
+      {/* Category Grid */}
+      <CategoryGrid onCategoryClick={handleCategoryClick} />
+      {/* Featured Companies */}
+      <FeaturedCompanies />
+      {/* Latest Jobs */}
+      <LatestJobs />
+      {/* Employer CTA */}
+      <EmployerCTA onSignUp={handleSignUp} />
+    </PageWrapper>
   );
 }
