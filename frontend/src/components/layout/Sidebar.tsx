@@ -16,6 +16,7 @@ const NAV_ITEMS: SidebarNavItem[] = [
   { label: TEXT.dashboard.applicants, icon: 'users', path: ROUTES.dashboardApplicants },
   { label: TEXT.dashboard.messages, icon: 'message', path: ROUTES.dashboardMessages },
   { label: TEXT.dashboard.settings, icon: 'settings', path: ROUTES.dashboardSettings },
+  { label: "Admin", icon: "shield", path: ROUTES.dashboardAdmin },
 ];
 
 export function Sidebar() {

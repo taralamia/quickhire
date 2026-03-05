@@ -12,4 +12,5 @@ export const ROUTES = {
   dashboardSettings: '/dashboard/settings',
   login: '/login',
   register: '/register',
+  dashboardAdmin: '/dashboard/admin',
 } as const;
