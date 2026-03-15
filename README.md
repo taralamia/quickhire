@@ -45,7 +45,7 @@ https://github.com/user-attachments/assets/6625f889-75d5-4859-9886-2d5ea81357d5
    ```
 2. Navigate to the project directory and install dependencies:
     ```
-   cd hands-on-volunteering-platform
+   cd quickhire
    npm install
    ```
 
