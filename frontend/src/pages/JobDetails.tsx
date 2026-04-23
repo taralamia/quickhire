@@ -96,33 +96,100 @@ export function JobDetails() {
   return (
     <PageWrapper>
       {/* Back Button */}
-      <button
-        onClick={() => navigate(-1)}
-        className="text-primary hover:text-primary/80 mb-6 flex items-center gap-2"
-      >
-        ← Back
-      </button>
+
+      <div className="flex items-center gap-3 mb-6">
+  <button
+    onClick={() => navigate(-1)}
+    className="text-primary hover:text-primary/80 flex items-center gap-2"
+  >
+    ← Back
+  </button>
+  <span className="text-neutral-400">/</span>
+  <span className="text-neutral-600">Job Details</span>
+</div>
 
       {/* Job Header, Application Form, Description, Requirements, Company Info */}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="border rounded p-2" />
+        <div className="px-4 md:px-6 lg:px-8 py-10">
+  <div className="max-w-2xl mx-auto">
+    
+    {/* Form Card */}
+    <div className="bg-white border border-neutral-200 rounded-2xl shadow-sm p-6 md:p-8">
+
+      {/* Title */}
+      <h2 className="text-2xl font-semibold text-neutral-900 mb-2">
+        Apply for this job
+      </h2>
+      <p className="text-neutral-600 mb-6">
+        Fill in your details and submit your application.
+      </p>
+
+      <form onSubmit={handleSubmit} className="space-y-5">
+
+        {/* Name */}
+        <div>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">
+            Full Name
+          </label>
+          <input
+            type="text"
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            className="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            placeholder="John Doe"
+          />
         </div>
-        <div className="mb-4">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="border rounded p-2" />
+
+        {/* Email */}
+        <div>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">
+            Email Address
+          </label>
+          <input
+            type="email"
+            value={formData.email}
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            className="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            placeholder="john@example.com"
+          />
         </div>
-        <div className="mb-4">
-          <label htmlFor="resumeUrl">Resume URL</label>
-          <input type="url" id="resumeUrl" value={formData.resumeUrl} onChange={(e) => setFormData({ ...formData, resumeUrl: e.target.value })} className="border rounded p-2" />
+
+        {/* Resume */}
+        <div>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">
+            Resume URL
+          </label>
+          <input
+            type="url"
+            value={formData.resumeUrl}
+            onChange={(e) => setFormData({ ...formData, resumeUrl: e.target.value })}
+            className="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            placeholder="https://your-resume-link.com"
+          />
         </div>
-        <div className="mb-4">
-          <label htmlFor="coverNote">Cover Note</label>
-          <textarea id="coverNote" value={formData.coverNote} onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })} className="border rounded p-2" />
+
+        {/* Cover Note */}
+        <div>
+          <label className="block text-sm font-medium text-neutral-700 mb-1">
+            Cover Note
+          </label>
+          <textarea
+            rows={4}
+            value={formData.coverNote}
+            onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })}
+            className="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            placeholder="Write a short message..."
+          />
         </div>
-        <button type="submit">Apply</button>
+
+        {/* Submit */}
+        <QHButton type="submit" variant="primary" size="lg">
+          Submit Application
+        </QHButton>
+
       </form>
+    </div>
+  </div>
+</div>
     </PageWrapper>
   );
 }
