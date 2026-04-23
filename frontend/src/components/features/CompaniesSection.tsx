@@ -1,11 +1,11 @@
 import { TEXT } from '@/constants/text';
 
 const COMPANY_LOGOS = [
-  { name: 'Vodafone', logo: 'https://logo.clearbit.com/vodafone.com' },
-  { name: 'Intel', logo: 'https://logo.clearbit.com/intel.com' },
-  { name: 'Tesla', logo: 'https://logo.clearbit.com/tesla.com' },
-  { name: 'AMD', logo: 'https://logo.clearbit.com/amd.com' },
-  { name: 'Talkit', logo: 'https://via.placeholder.com/120x40/E5E7EB/6B7280?text=Talkit' },
+  { name: 'Magoosh', logo: '/assets/companies/magoosh.svg' },
+  { name: 'Byjus', logo: '/assets/companies/byjus.svg' },
+  { name: 'Gregmat', logo: '/assets/companies/gregmat.svg' },
+  { name: 'Food Panda', logo: '/assets/companies/foodpanda.svg' },
+  { name: 'Rokomari', logo: '/assets/companies/rokomari.svg' },
 ];
 
 export function CompaniesSection() {
@@ -20,15 +20,15 @@ export function CompaniesSection() {
           {COMPANY_LOGOS.map((company) => (
             <div
               key={company.name}
-              className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="flex items-center justify-center w-24 h-16"
             >
               <img
                 src={company.logo}
                 alt={company.name}
-                className="h-8 md:h-10 w-auto object-contain"
+                className="w-full h-full object-contain"
                 onError={(e) => {
-                  // Fallback to placeholder if logo fails to load
-                  e.currentTarget.src = `https://via.placeholder.com/120x40/E5E7EB/6B7280?text=${company.name}`;
+                  // Fallback to local placeholder if logo fails to load
+                  e.currentTarget.src = '/assets/companies/placeholder.svg';
                 }}
               />
             </div>

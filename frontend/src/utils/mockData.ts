@@ -1,22 +1,24 @@
 import type { Job, JobCategory } from '@/types/job';
 import type { Company } from '@/types/company';
 
-// Mock company data
+// --------------------
+// Companies
+// --------------------
 export const MOCK_COMPANIES: Company[] = [
   {
     id: '1',
-    name: 'Google',
-    logo: '/assets/companies/google-logo.png',
-    location: 'Mountain View, CA',
-    description: 'A multinational technology company specializing in Internet-related services and products.',
+    name: 'Byjus',
+    logo: '/assets/companies/byjus.svg',
+    location: 'India, Bangalore',
+    description: 'EdTech platform for personalized learning.',
     jobCount: 12,
   },
   {
     id: '2',
-    name: 'Microsoft',
-    logo: '/assets/companies/microsoft-logo.png',
-    location: 'Redmond, WA',
-    description: 'Leading technology company developing software, hardware, and cloud services.',
+    name: 'Magoosh',
+    logo: '/assets/companies/magoosh.svg',
+    location: 'USA',
+    description: 'Online test preparation platform.',
     jobCount: 8,
   },
   {
@@ -24,7 +26,7 @@ export const MOCK_COMPANIES: Company[] = [
     name: 'Apple',
     logo: '/assets/companies/apple-logo.png',
     location: 'Cupertino, CA',
-    description: 'Innovative technology company known for consumer electronics and software.',
+    description: 'Consumer electronics company.',
     jobCount: 15,
   },
   {
@@ -32,7 +34,7 @@ export const MOCK_COMPANIES: Company[] = [
     name: 'Amazon',
     logo: '/assets/companies/amazon-logo.png',
     location: 'Seattle, WA',
-    description: 'E-commerce and cloud computing giant with diverse technology services.',
+    description: 'E-commerce and cloud computing.',
     jobCount: 20,
   },
   {
@@ -40,58 +42,34 @@ export const MOCK_COMPANIES: Company[] = [
     name: 'Meta',
     logo: '/assets/companies/meta-logo.png',
     location: 'Menlo Park, CA',
-    description: 'Social technology company building the future of connection and community.',
+    description: 'Social technology company.',
     jobCount: 10,
-  },
-  {
-    id: '6',
-    name: 'Netflix',
-    logo: '/assets/companies/netflix-logo.png',
-    location: 'Los Gatos, CA',
-    description: 'Streaming entertainment service with award-winning content.',
-    jobCount: 6,
-  },
-  {
-    id: '7',
-    name: 'Tesla',
-    logo: '/assets/companies/tesla-logo.png',
-    location: 'Austin, TX',
-    description: 'Electric vehicle and clean energy company accelerating sustainable transport.',
-    jobCount: 14,
-  },
-  {
-    id: '8',
-    name: 'Spotify',
-    logo: '/assets/companies/spotify-logo.png',
-    location: 'Stockholm, Sweden',
-    description: 'Audio streaming platform with millions of songs and podcasts.',
-    jobCount: 7,
   },
 ];
 
-// Mock job data
-export const MOCK_JOBS: Job[] = [
+// --------------------
+// Jobs (mutable)
+// --------------------
+let jobs: Job[] = [
   {
     id: '1',
     title: 'Senior Frontend Developer',
     company: MOCK_COMPANIES[0],
     location: 'San Francisco, CA',
-    description: 'We are looking for an experienced frontend developer to join our team.',
-    requirements: ['5+ years React experience', 'TypeScript proficiency', 'UI/UX design skills'],
+    description: 'Experienced frontend developer needed.',
+    requirements: ['React', 'TypeScript'],
     salary: { min: 120000, max: 180000, currency: 'USD' },
     jobTypes: ['Full-time', 'Remote'],
     category: 'Technology',
     postedAt: new Date('2024-01-15'),
-    applicationDeadline: new Date('2024-03-15'),
   },
   {
     id: '2',
     title: 'Product Designer',
     company: MOCK_COMPANIES[2],
     location: 'New York, NY',
-    description: 'Join our design team to create beautiful and intuitive user experiences.',
-    requirements: ['3+ years design experience', 'Figma expertise', 'Portfolio required'],
-    salary: { min: 100000, max: 150000, currency: 'USD' },
+    description: 'Design user experiences.',
+    requirements: ['Figma', 'Portfolio'],
     jobTypes: ['Full-time'],
     category: 'Design',
     postedAt: new Date('2024-01-20'),
@@ -101,8 +79,8 @@ export const MOCK_JOBS: Job[] = [
     title: 'Marketing Manager',
     company: MOCK_COMPANIES[4],
     location: 'Austin, TX',
-    description: 'Lead our marketing initiatives and grow our brand presence.',
-    requirements: ['5+ years marketing experience', 'Digital marketing skills', 'Team leadership'],
+    description: 'Lead marketing.',
+    requirements: ['Digital marketing'],
     jobTypes: ['Full-time'],
     category: 'Marketing',
     postedAt: new Date('2024-01-18'),
@@ -112,117 +90,61 @@ export const MOCK_JOBS: Job[] = [
     title: 'Data Engineer',
     company: MOCK_COMPANIES[3],
     location: 'Seattle, WA',
-    description: 'Build and maintain data pipelines for our analytics platform.',
-    requirements: ['Python/SQL expertise', 'AWS experience', 'Data modeling skills'],
-    salary: { min: 130000, max: 190000, currency: 'USD' },
+    description: 'Build pipelines.',
+    requirements: ['Python', 'SQL'],
     jobTypes: ['Full-time', 'Remote'],
     category: 'Engineering',
     postedAt: new Date('2024-01-22'),
   },
-  {
-    id: '5',
-    title: 'Sales Representative',
-    company: MOCK_COMPANIES[1],
-    location: 'Chicago, IL',
-    description: 'Drive sales growth and build relationships with enterprise clients.',
-    requirements: ['3+ years B2B sales', 'CRM experience', 'Strong communication'],
-    jobTypes: ['Full-time'],
-    category: 'Sales',
-    postedAt: new Date('2024-01-25'),
-  },
-  {
-    id: '6',
-    title: 'Financial Analyst',
-    company: MOCK_COMPANIES[5],
-    location: 'Boston, MA',
-    description: 'Analyze financial data and provide insights for strategic decisions.',
-    requirements: ['Finance degree', 'Excel proficiency', 'Analytical skills'],
-    salary: { min: 80000, max: 120000, currency: 'USD' },
-    jobTypes: ['Full-time'],
-    category: 'Finance',
-    postedAt: new Date('2024-01-12'),
-  },
-  {
-    id: '7',
-    title: 'HR Coordinator',
-    company: MOCK_COMPANIES[6],
-    location: 'Denver, CO',
-    description: 'Support HR operations and employee engagement initiatives.',
-    requirements: ['2+ years HR experience', 'HRIS knowledge', 'People skills'],
-    jobTypes: ['Full-time'],
-    category: 'HR',
-    postedAt: new Date('2024-01-28'),
-  },
-  {
-    id: '8',
-    title: 'Business Analyst',
-    company: MOCK_COMPANIES[7],
-    location: 'Portland, OR',
-    description: 'Bridge the gap between business needs and technical solutions.',
-    requirements: ['Business analysis experience', 'SQL skills', 'Agile methodology'],
-    jobTypes: ['Full-time', 'Remote'],
-    category: 'Business',
-    postedAt: new Date('2024-01-30'),
-  },
 ];
 
-// Category job counts
-export const CATEGORY_JOB_COUNTS: Record<JobCategory, number> = {
-  Design: 45,
-  Sales: 32,
-  Marketing: 28,
-  Finance: 18,
-  Technology: 67,
-  Engineering: 54,
-  Business: 39,
-  HR: 22,
-};
-
-// Popular search terms
+// --------------------
+// Popular Searches
+// --------------------
 export const POPULAR_SEARCHES = [
   'Frontend Developer',
   'Product Manager',
   'UX Designer',
   'Data Scientist',
-  'Marketing Manager',
 ];
 
-// Get featured companies (first 4)
-export function getFeaturedCompanies(): Company[] {
-  return MOCK_COMPANIES.slice(0, 4);
+// --------------------
+// JOB CRUD
+// --------------------
+export function getAllJobs(): Job[] {
+  return jobs;
 }
 
-// Get latest jobs (first 6)
-export function getLatestJobs(limit: number = 6): Job[] {
-  return MOCK_JOBS.slice(0, limit);
+export function addJob(newJob: Job) {
+  jobs.unshift(newJob);
 }
 
-// Get featured jobs (jobs with remote option)
-export function getFeaturedJobs(): Job[] {
-  return MOCK_JOBS.filter(job => job.jobTypes.includes('Remote'));
+export function deleteJob(id: string) {
+  jobs = jobs.filter(j => j.id !== id);
 }
 
-// Get jobs by category
-export function getJobsByCategory(category: JobCategory): Job[] {
-  return MOCK_JOBS.filter(job => job.category === category);
-}
 
-// Search jobs
-export function searchJobs(query?: string, location?: string, category?: JobCategory): Job[] {
-  let results = [...MOCK_JOBS];
+export function searchJobs(
+  query?: string,
+  location?: string,
+  category?: JobCategory
+): Job[] {
+  let results = [...jobs];
 
   if (query) {
-    const lowerQuery = query.toLowerCase();
+    const q = query.toLowerCase();
     results = results.filter(
       job =>
-        job.title.toLowerCase().includes(lowerQuery) ||
-        job.description.toLowerCase().includes(lowerQuery) ||
-        job.company.name.toLowerCase().includes(lowerQuery)
+        job.title.toLowerCase().includes(q) ||
+        job.description.toLowerCase().includes(q) ||
+        job.company.name.toLowerCase().includes(q)
     );
   }
 
   if (location) {
-    results = results.filter(job => job.location.includes(location));
+    results = results.filter(job =>
+      job.location.toLowerCase().includes(location.toLowerCase())
+    );
   }
 
   if (category) {
@@ -232,24 +154,50 @@ export function searchJobs(query?: string, location?: string, category?: JobCate
   return results;
 }
 
-// Get job by ID
-export function getJobById(id: string): Job | undefined {
-  return MOCK_JOBS.find(job => job.id === id);
+
+export function getCategoryCounts(): Record<JobCategory, number> {
+  const counts: Record<JobCategory, number> = {
+    Design: 0,
+    Sales: 0,
+    Marketing: 0,
+    Finance: 0,
+    Technology: 0,
+    Engineering: 0,
+    Business: 0,
+    HR: 0,
+  };
+
+  jobs.forEach(job => {
+    counts[job.category]++;
+  });
+
+  return counts;
 }
 
-// Get company by ID
+export function getJobsByCategory(category: JobCategory): Job[] {
+  return jobs.filter(job => job.category === category);
+}
+
+
 export function getCompanyById(id: string): Company | undefined {
-  return MOCK_COMPANIES.find(company => company.id === id);
+  return MOCK_COMPANIES.find(c => c.id === id);
 }
 
-// Mock applicant summary data
-export const MOCK_APPLICANT_SUMMARY = {
-  totalApplicants: 150,
-  stages: [
-    { stage: 'Applied', count: 60, color: '#4640DE' },
-    { stage: 'Screening', count: 35, color: '#26A4FF' },
-    { stage: 'Interview', count: 28, color: '#FFB836' },
-    { stage: 'Offer', count: 15, color: '#56CDAD' },
-    { stage: 'Hired', count: 12, color: '#7B61FF' },
-  ],
-};
+export function getFeaturedCompanies(): Company[] {
+  return MOCK_COMPANIES.slice(0, 4);
+}
+export function getJobById(id: string): Job | undefined {
+  return jobs.find(job => job.id === id);
+}
+
+export function getFeaturedJobs(): Job[] {
+  // Example logic: Remote jobs = featured
+  return jobs.filter(job => job.jobTypes.includes('Remote'));
+}
+
+export function getLatestJobs(limit: number = 6): Job[] {
+  return [...jobs]
+    .sort((a, b) => b.postedAt.getTime() - a.postedAt.getTime())
+    .slice(0, limit);
+}
+export const CATEGORY_JOB_COUNTS = getCategoryCounts();

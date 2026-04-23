@@ -1,5 +1,3 @@
-// PageWrapper.tsx
-// PageWrapper.tsx
 import type { ReactNode } from 'react';
 import { Header } from './Header';
 

@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { PageWrapper } from '@/components/layout/PageWrapper';
 import { QHButton } from '@/components/ui/QHButton';
-import { QHBadge } from '@/components/ui/QHBadge';
-import { QHInput } from '@/components/ui/QHInput';
 import { LoadingSpinner } from '@/components/common/LoadingSpinner';
 import { ErrorMessage } from '@/components/common/ErrorMessage';
 import { jobService } from '@/services/jobService';
@@ -15,12 +13,12 @@ export function JobDetails() {
   const [job, setJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [showApplicationForm, setShowApplicationForm] = useState(false);
 
   const [formData, setFormData] = useState({ name: '', email: '', resumeUrl: '', coverNote: '' });
-  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
-  const [submitting, setSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [,setFormErrors] = useState<Record<string, string>>({});
+  const [,setSubmitting] = useState(false);
+  const [,setSubmitSuccess] = useState(false);
+  const [, setShowApplicationForm] = useState(false);
 
   useEffect(() => {
     if (id) loadJob(id);
@@ -106,7 +104,26 @@ export function JobDetails() {
       </button>
 
       {/* Job Header, Application Form, Description, Requirements, Company Info */}
-      {/* ... keep the rest of your JSX as-is inside PageWrapper ... */}
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="border rounded p-2" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="border rounded p-2" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="resumeUrl">Resume URL</label>
+          <input type="url" id="resumeUrl" value={formData.resumeUrl} onChange={(e) => setFormData({ ...formData, resumeUrl: e.target.value })} className="border rounded p-2" />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="coverNote">Cover Note</label>
+          <textarea id="coverNote" value={formData.coverNote} onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })} className="border rounded p-2" />
+        </div>
+        <button type="submit">Apply</button>
+      </form>
     </PageWrapper>
   );
 }
+

@@ -22,19 +22,11 @@ export type { CategoryGridProps } from './CategoryGrid';
 export { CompanyCard } from './CompanyCard';
 export type { CompanyCardProps } from './CompanyCard';
 
-export { CompanyCard } from './CompanyCard';
-export type { CompanyCardProps } from './CompanyCard';
-
-export { CategoryCard } from './CategoryCard';
-export type { CategoryCardProps } from './CategoryCard';
-
 export { FeaturedCompanies } from './FeaturedCompanies';
 
 export { HeroSection } from './HeroSection';
 
 export { PopularSearches } from './PopularSearches';
-
-export { CategoryGrid } from './CategoryGrid';
 
 export { EmployerCTA } from './EmployerCTA';
 export type { EmployerCTAProps } from './EmployerCTA';

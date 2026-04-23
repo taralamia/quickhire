@@ -4,7 +4,6 @@ import { PageWrapper } from '@/components/layout/PageWrapper';
 import { Footer } from '@/components/layout/Footer';
 import { QHButton } from '@/components/ui/QHButton';
 import { QHInput } from '@/components/ui/QHInput';
-import { TEXT } from '@/constants/text';
 import { ROUTES } from '@/constants/routes';
 
 export function Login() {

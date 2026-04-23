@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { jobService } from '@/services/jobService';
 import type { Job } from '@/types/job';
 import { JobCard } from './JobCard';

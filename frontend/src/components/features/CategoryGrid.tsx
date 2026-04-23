@@ -1,7 +1,7 @@
 import React from 'react';
 import { CategoryCard } from './CategoryCard';
 import type { JobCategory } from '@/types/job';
-import { CATEGORY_JOB_COUNTS } from '@/utils/mockData';
+import { getCategoryCounts } from '@/utils/mockData';
 import { TEXT } from '@/constants/text';
 
 export interface CategoryGridProps {
@@ -22,7 +22,6 @@ const CATEGORIES: JobCategory[] = [
 // Simple icon placeholders - in a real app these would be proper SVG icons
 const getCategoryIcon = (category: JobCategory): React.ReactNode => {
   const iconClass = 'w-12 h-12';
-  
   switch (category) {
     case 'Design':
       return (
@@ -80,8 +79,7 @@ const getCategoryIcon = (category: JobCategory): React.ReactNode => {
 
 export function CategoryGrid({ onCategoryClick }: CategoryGridProps) {
   // Mark Technology as the featured category (index 4)
-  const featuredCategory: JobCategory = 'Technology';
-
+  const counts = getCategoryCounts();
   return (
     <section className="py-16 px-4 bg-background" data-testid="category-grid">
       <div className="max-w-7xl mx-auto">
@@ -126,9 +124,8 @@ export function CategoryGrid({ onCategoryClick }: CategoryGridProps) {
             <CategoryCard
               key={category}
               category={category}
-              jobCount={CATEGORY_JOB_COUNTS[category]}
+              jobCount={counts[category]}
               icon={getCategoryIcon(category)}
-              featured={category === featuredCategory}
               onClick={onCategoryClick}
             />
           ))}

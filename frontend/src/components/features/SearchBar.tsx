@@ -49,10 +49,6 @@ export function SearchBar({ onSearch, initialQuery = '', initialLocation = '' }:
     onSearch(searchParams);
   };
 
-  const handlePopularSearchClick = (searchTerm: string) => {
-    setQuery(searchTerm);
-    onSearch({ query: searchTerm });
-  };
 
   return (
     <div className="w-full">

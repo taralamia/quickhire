@@ -1,4 +1,3 @@
-import React from 'react';
 import { QHButton } from '../ui/QHButton';
 
 export interface ErrorMessageProps {
