@@ -5,7 +5,7 @@ import { getCategoryCounts } from '@/utils/mockData';
 import { TEXT } from '@/constants/text';
 
 export interface CategoryGridProps {
-  onCategoryClick: (category: JobCategory) => void;
+  onCategoryClick: (category?: JobCategory) => void;
 }
 
 const CATEGORIES: JobCategory[] = [
@@ -98,6 +98,7 @@ export function CategoryGrid({ onCategoryClick }: CategoryGridProps) {
             className="text-primary font-body text-body-md font-semibold hover:text-primary-dark transition-colors duration-200 flex items-center gap-2"
             onClick={(e) => {
               e.preventDefault();
+              onCategoryClick();
               console.log('Show all categories clicked');
             }}
           >

@@ -14,7 +14,12 @@ export function JobDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const [formData, setFormData] = useState({ name: '', email: '', resumeUrl: '', coverNote: '' });
+  const [formData, setFormData] = useState({ 
+  name: '', 
+  email: '', 
+  resumeText: '', // NEW
+  coverNote: '' 
+});
   const [,setFormErrors] = useState<Record<string, string>>({});
   const [,setSubmitting] = useState(false);
   const [,setSubmitSuccess] = useState(false);
@@ -42,8 +47,9 @@ export function JobDetails() {
     if (!formData.name.trim()) errors.name = 'Name is required';
     if (!formData.email.trim()) errors.email = 'Email is required';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = 'Please enter a valid email address';
-    if (!formData.resumeUrl.trim()) errors.resumeUrl = 'Resume URL is required';
-    else if (!/^https?:\/\/.+/.test(formData.resumeUrl)) errors.resumeUrl = 'Please enter a valid URL';
+    if (!formData.resumeText.trim()) {
+  errors.resumeText = 'Resume text is required';
+}
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -56,7 +62,7 @@ export function JobDetails() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       setSubmitSuccess(true);
-      setFormData({ name: '', email: '', resumeUrl: '', coverNote: '' });
+      setFormData({ name: '', email: '', resumeText: '', coverNote: '' });
       setTimeout(() => {
         setShowApplicationForm(false);
         setSubmitSuccess(false);
@@ -67,7 +73,42 @@ export function JobDetails() {
       setSubmitting(false);
     }
   };
+const handleGenerateCoverLetter = async () => {
+  if (!formData.resumeText.trim()) {
+    alert("Please paste your resume first");
+    return;
+  }
 
+  if (!job?.description) {
+    alert("Job description not available");
+    return;
+  }
+
+  try {
+    const res = await fetch("http://localhost:5000/api/ai/test", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        resumeText: formData.resumeText,
+        jobDescription: job.description
+      })
+    });
+
+    const data = await res.json();
+
+    setFormData((prev) => ({
+      ...prev,
+      coverNote: data.result || ""
+    }));
+
+  } catch (err) {
+    console.error(err);
+    alert("Failed to generate cover letter");
+  }
+};
   if (loading) {
     return (
       <PageWrapper>
@@ -152,26 +193,36 @@ export function JobDetails() {
             placeholder="john@example.com"
           />
         </div>
-
-        {/* Resume */}
+{/* Resume Text */}
+<div>
+  <label className="block text-sm font-medium text-neutral-700 mb-1">
+    Resume Content
+  </label>
+  <textarea
+    rows={5}
+    value={formData.resumeText}
+    onChange={(e) =>
+      setFormData({ ...formData, resumeText: e.target.value })
+    }
+    className="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+    placeholder="Paste your resume content here..."
+  />
+</div>
+        {/* Cover Letter */}
         <div>
-          <label className="block text-sm font-medium text-neutral-700 mb-1">
-            Resume URL
-          </label>
-          <input
-            type="url"
-            value={formData.resumeUrl}
-            onChange={(e) => setFormData({ ...formData, resumeUrl: e.target.value })}
-            className="w-full border border-neutral-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-            placeholder="https://your-resume-link.com"
-          />
-        </div>
+          <div className="flex justify-between items-center mb-1">
+  <label className="block text-sm font-medium text-neutral-700">
+    Cover Letter
+  </label>
 
-        {/* Cover Note */}
-        <div>
-          <label className="block text-sm font-medium text-neutral-700 mb-1">
-            Cover Note
-          </label>
+  <button
+    type="button"
+    onClick={handleGenerateCoverLetter}
+    className="text-sm text-primary font-medium hover:underline"
+  >
+    ✨ Generate with AI
+  </button>
+</div>
           <textarea
             rows={4}
             value={formData.coverNote}
